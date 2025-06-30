@@ -17,17 +17,17 @@ namespace ReadyGo.Identity.Outbox.Backgrounds
 
         private readonly IOutboxRepository _outboxRepository;
 
-        private readonly ITimeProvider _timeProvider;
-
         private readonly IUnitOfWork _unitOfWork;
 
+        private readonly ITimeProvider _timeProvider;
+
         public OutboxBackground(IOutboxRepository outboxRepository, 
-                                ITimeProvider timeProvider,
-                                IUnitOfWork unitOfWork)
+                                IUnitOfWork unitOfWork,
+                                ITimeProvider timeProvider)
         {
             _outboxRepository = outboxRepository;
-            _timeProvider = timeProvider;
             _unitOfWork = unitOfWork;
+            _timeProvider = timeProvider;
         }
 
         public async Task HandleAsync(CancellationToken cancellation)
